@@ -1,0 +1,14 @@
+#i:sheep
+val: #dog #horse #cow
+text_intrebare#'a sheep is a?'.
+
+#1
+pr:
+    sheep#dog
+    yes:dog
+    not:lamb
+c:
+    shepard#dumb fc#90.
+
+
+scop#shepard.

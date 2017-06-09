@@ -1,0 +1,11 @@
+trimitere_specialist == dentist <= durere_dinti == mediu
+
+trimitere_specialist == pediatru <= plans &&
+                                    varsta == copil_mic <= varsta_ani == 0_5
+
+
+trimitere_specialist == pneumolog <= greata
+                                     probleme_virale <= febra
+                                                        frisoane
+                                                        oboseala
+                                                        durere_musculara(_) && durere_cap(_)

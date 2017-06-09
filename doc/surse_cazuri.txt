@@ -1,0 +1,110 @@
+- Pneumonia:
+    Docs:
+    - People with infectious pneumonia often have a productive cough, fever accompanied by shaking chills, shortness of breath, sharp or stabbing chest pain during deep breaths, and an increased rate of breathing.
+    Attributes:
+    - Tuse productiva
+    - Febra
+    - Frisoane
+    - Durere de piept puternica
+    - Rata a respiratiei crescuta
+    Solution: pneumolog
+
+- Strep Throat:
+    Docs:
+    - Strep throat is caused by the streptococcus bacteria. Several million cases of strep throat occur every year. Symptoms include a sore throat, fever, headache, fatigue, and nausea.
+    Attributes:
+    - Dureri de gat
+    - Febra
+    - Dureri de cap
+    - Oboseala
+    - Greate
+    Solution: pneumolog
+
+- Tuberculosis:
+    Docs:
+    - Tuberculosis causes nearly 2 million deaths every year, and WHO estimates that nearly 1 billion people will be infected between 2000 and 2020 if more effective preventive procedures are not adopted. The TB bacteria are most often found in the lungs, where they can cause chest pain and a bad cough that brings up bloody phlegm. Other symptoms include fatigue, weight loss, appetite loss, chills, fever, and night sweats.
+    Attriubtes:
+    - Tuse cu sange
+    - Oboseala
+    - Pierdere de apetit
+    - Frisoane
+    - Febra
+    - Transpirații nocturne
+    Solution: pneumolog
+
+
+- Influenza:
+    Docs:
+    - Several influenza epidemics in the 20th century caused millions of deaths worldwide, including the worst epidemic in American history, the Spanish influenza outbreak that killed more than 500,000 in 1918. Today influenza is less of a public health threat, though it continues to be a serious disease that affects many people. Approximately 20,000 people die of the flu in the United States every year. The influenza virus attacks the human respiratory tract, causing symptoms such as fever, headaches, fatigue, coughing, sore throat, nasal congestion, and body aches.
+    Attributes:
+    - Febra
+    - Durere de cap
+    - Tuse
+    - Durere in gat
+    - Nas infundat
+    - Dureri musculare
+    Solution: pneumolog
+
+- Rotavirus:
+    Docs:
+    - Rotavirus is the most common cause of viral gastroenteritis worldwide. It kills more than 600,000 children each year, mostly in developing countries. Symptoms include vomiting, watery diarrhea, fever, and abdominal pain.
+    Attributes:
+    - Voma
+    - Diareea apoasa
+    - Febra
+    - Durere abdominala
+    Solution: gastrointerolog
+
+- Peptic ulcer:
+    Docs:
+    - abdominal pain, classically epigastric strongly correlated to mealtimes. In case of duodenal ulcers the pain appears about three hours after taking a meal;
+bloating and abdominal fullness;
+waterbrash (rush of saliva after an episode of regurgitation to dilute the acid in esophagus - although this is more associated with gastroesophageal reflux disease);
+nausea, and copious vomiting;
+loss of appetite and weight loss;
+hematemesis (vomiting of blood); this can occur due to bleeding directly from a gastric ulcer, or from damage to the esophagus from severe/continuing vomiting.
+melena (tarry, foul-smelling feces due to presence of oxidized iron from hemoglobin);
+    Attributes:
+    - Dureri abdominale
+    - Balonare
+    - Greata
+    - Varsaturi
+    Solution: gastrointerolog
+
+- Arrhythmias:
+    Docs:
+    - The most common symptom of an arrhythmia is an awareness of an abnormal heartbeat, called palpitations. These may be infrequent, frequent, or continuous. Some of these arrhythmias are harmless (though distracting for patients) but some of them predispose to adverse outcomes.
+    Attributes:
+    - Palpitatii
+    - Tensiune scazuta
+    Solution: cardiolog
+
+- Heart failiure:
+    Docs:
+    - The left side of the heart is responsible for receiving oxygen-rich blood from the lungs and pumping it forward to the systemic circulation (the rest of the body except for the pulmonary circulation). Failure of the left side of the heart causes blood to back up (be congested) into the lungs, causing respiratory symptoms as well as fatigue due to insufficient supply of oxygenated blood. Common respiratory signs are increased rate of breathing and increased work of breathing (non-specific signs of respiratory distress). Rales or crackles, heard initially in the lung bases, and when severe, throughout the lung fields suggest the development of pulmonary edema (fluid in the alveoli). Cyanosis which suggests severe low blood oxygen, is a late sign of extremely severe pulmonary edema.
+    - Physical examination may reveal pitting peripheral edema, ascites, and liver enlargement. Jugular venous pressure is frequently assessed as a marker of fluid status, which can be accentuated by eliciting hepatojugular reflux. If the right ventricular pressure is increased, a parasternal heave may be present, signifying the compensatory increase in contraction strength.
+    Atrributes:
+    - Oboseala
+    - Rata crescuta a respiratiei
+    - Pocnituri in timpul respiratiei
+    - Edem
+    - Ficat marit
+    Solution: cardiolog
+
+- Unequal leg length:
+    Docs:
+    Attributes:
+    - abs(len(picior_stang) - len(picior_drept)) > 4cm
+    Solution: ortoped
+
+- Appendicitis:
+  Docs:
+  - The presentation of acute appendicitis includes abdominal pain, nausea, vomiting, and fever. As the appendix becomes more swollen and inflamed, it begins to irritate the adjoining abdominal wall. This leads to the localization of the pain to the right lower quadrant. This classic migration of pain may not be seen in children under three years. This pain can be elicited through signs and can be severe. Signs include localized findings in the right iliac fossa. The abdominal wall becomes very sensitive to gentle pressure (palpation). There is severe pain on sudden release of deep pressure in the lower abdomen (rebound tenderness). If the appendix is retrocecal (localized behind the cecum), even deep pressure in the right lower quadrant may fail to elicit tenderness (silent appendix). This is because the cecum, distended with gas, protects the inflamed appendix from pressure. Similarly, if the appendix lies entirely within the pelvis, there is usually complete absence of abdominal rigidity. In such cases, a digital rectal examination elicits tenderness in the rectovesical pouch. Coughing causes point tenderness in this area (McBurney's point).
+  Attributes:
+  - Dureri abdominale, dreapta jos
+  - Greata
+  - Varsaturi
+  - Febra
+  Solution: chirurg
+
+Not: urologie, endocrinologie, obstetrica- ginecologie , orl , dermatolog, medicina interna, neurologie, reumatologie, oftalmologie,alergologie

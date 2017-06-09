@@ -1,0 +1,329 @@
+﻿attribut_scop: trimitere_specialist
+attribute:
+- trimitere_specialist(dentist) = durere_dinti(_)
+- trimitere_specialist(pediatru) = varsta == copil_mic && plans
+- trimitere_specialist(hematolog) = palpitatii && oboseala
+- trimitere_specialist(hematolog) = sangerari
+- trimitere_specialist(oncolog) = tuse_cu_sange && durere_piept
+- trimitere_specialist(oncolog) = febra && oboseala && ficat_marit
+- trimitere_specialist(chirurg) = febra && greata && durere_abdomen(_) 
+- trimitere_specialist(ortoped) = durere_(puternice) && durere_spate(_) && probleme_articualtii
+- trimitere_specialist(cardiolog) = probleme_cardiace  && edem && ficat_marit && !probleme_respiratorii
+- trimitere_specialist(gastrointerolog) = probleme_gastrice && durere_abdomen
+- trimitere_specialist(pneumolog) = probleme_respiratorii && probleme_virale && greata
+, urolog, endocrinolog, ginecolog, orl-ist, dermatolog, internist, neurolog, reumatolog, oftalmolog, alergolog],dedus=[toate]
+-trimitere_specialist(ginecolog) = 
+
+
+
+
+- tensiune(mica) = varsta == copil_mic && tensiune_sistolica between 0 and 80
+- tensiune(mica) = varsta == copil_mic && tensiune_diastolica between 0 and 50
+
+
+- tensiune(mica) = varsta == copil && tensiune_sistolica between 0 and 85
+- tensiune(mica) = varsta == copil && tensiune_diastolica between 0 and 50
+
+
+- tensiune(mica) = varsta == adolescent && tensiune_sistolica between 0 and 95
+- tensiune(mica) = varsta == adolescent && tensiune_diastolica between 0 and 60
+
+
+- tensiune(mica) = varsta == adult && tensiune_sistolica between 0 and 90
+- tensiune(mica) = varsta == adult && tensiune_diastolica between 0 and 60
+
+
+- tensiune(mica) = varsta == varstnic && tensiune_sistolica between 0 and 90
+- tensiune(mica) = varsta == varstnic && tensiune_diastolica between 0 and 60
+
+
+- tensiune(normala) =
+        (varsta < 1 && (tensiune_sistolica between 75 and 100 || tensiune_diastolica between 50 and 70)) ||
+        ((varsta >= 1 && varsta <= 5) && (tensiune_sistolica between 80 and 110 || tensiune_diastolica between 50 and 80)) ||
+        ((varsta >= 6 && varsta <= 12) && (tensiune_sistolica between 85 and 120 || tensiune_diastolica between 50 and 80)) ||
+        ((varsta >= 13 && varsta <= 18) && (tensiune_sistolica between 95 and 140 || tensiune_diastolica between 60 and 90)) ||
+        (varsta > 18 && (tenasiune_sistolica between 90 and 139 || tensiune_disatolicat between 60 and 89))
+- tensiune(mare) = !tensiune(normala) && !tensiune(mica)
+
+
+- varsta_ani = utilizator, range
+- varsta(copil_mic) = varsta_ani between 0 and 5
+- varsta(copil) = varsta_ani between 5 and 13
+- varsta(adolescent) = varsta_ani between 13 and 18
+- varsta(adult) = varsta_ani between 18 and 60
+- varsta(varstnic) = varsta_ani between 60 and 120
+
+
+- rata_respiratorie = range, utilizator
+
+
+- respiratie: val=[joasa, normala, dificila], dedus
+
+
+- respiratie(joasa) = varsta == copil_mic && rata_respiratorie between 0 and 25
+- respiratie(joasa) = varsta == copil && rata_respiratorie between 0 and 17
+- respiratie(joasa) = varsta == adolscent && rata_respiratorie between 0 and 12
+- respiratie(joasa) = varsta == adult && rata_respiratorie between 0 and 12
+- respiratie(joasa) = varsta == varstnic && rata_respiratorie between 0 and 12
+
+
+- respiratie(normala) = varsta == copil_mic && rata_respiratorie between 25 and 30
+- respiratie(normala) = varsta == copil && rata_respiratorie between 17 and 23
+- respiratie(normala) = varsta == adolscent && rata_respiratorie between 12 and 18
+- respiratie(normala) = varsta == adult && rata_respiratorie between 12 and 18
+- respiratie(normala) = varsta == varstnic && rata_respiratorie between 12 and 28
+
+
+- respiratie(dificila) = varsta == copil_mic && rata_respiratorie between 30 and _
+- respiratie(dificila) = varsta == copil && rata_respiratorie between 23 and _
+- respiratie(dificila) = varsta == adolscent && rata_respiratorie between 18 and _
+- respiratie(dificila) = varsta == adult && rata_respiratorie between 18 and _
+- respiratie(dificila) = varsta == varstnic && rata_respiratorie between 28 and _
+
+
+- probleme_virale = febra
+- probleme_virale = frisoane
+- probleme_virale = oboseala
+- probleme_virale = durere_musculara(_) && durere_cap(_)
+
+
+- probleme_respiratorii = tuse
+- probleme_resipratorii = respiratie(joasa)
+- probleme_respiratorii = respiratie(ridicata)
+- probleme_respiratorii = durere_gat
+- probleme_respiratorii = durere_piept(_)
+
+
+- probleme_gastrice = greata
+- probleme_gastrice = diaree
+
+
+- probleme_cardiace = palpitatii
+- probleme_cardiaca = oboseala
+- probleme_cardiace = tensiune(mica)
+- probleme_cardiace = tensiune(mare)
+
+
+- probleme_articualtii = durere_articualtii(_) && dislocare_os
+
+
+-probleme_urinare = hematurie
+-probleme_urinare = urinari_frecvente
+-probleme_urinare = disurie
+-probleme urinare = durere_spate(_)
+-probleme urinare = transpiratii_abundente
+
+
+-probleme_ginecologice = prurit_vulvar
+-probleme_ginecologice = secretii_anormale
+
+
+-probleme_oftalmologice = 
+
+
+
+
+- dislocare_os = durere__(puternica) && imposibilitate_mers
+
+
+plans = utilizator
+- tuse = bool, utilizator
+- frisoane= bool, utilizator
+- imposibilitate_mers: bool, utilizator
+- durere_articulatii = bool, utilizator
+- durere_piept: bool, utilizator
+- durere_gat: bool, utilizator
+- durere_cap: bool, utilizator
+- durere_musculara: bool, utilizator
+- durere_abdomen: bool, utilizator
+- durere_spate: bool, utilizator
+- durere_dinti: bool, utilizator
+- durere_articulatii: bool, utilizator
+- durere_ochi: bool, utilizator
+- diaree: bool, utilizator
+- palpitatii: bool, utilizator #candidat atribut dedus
+- tensiune_sistolica: range, utilizator
+- tensiune_diastolica: range, utilizator
+- tip_tensiune: [scazuta, medie, ridicata], dedus=[tensiune]
+- oboseala: bool, utilizator,
+- edem: bool, utlizator
+- ficat_marit: bool
+- lungime_picior_stang: int, utilizator
+- lungime_picior_drep: int, utilizator
+- picioare_inegale: bool, dedus=abs(lungime_picior_stang - lungime_picior_drept) > 10cm
+- hematurie: bool, utilizator
+- inapetenta: bool, utilizator
+- urinari_frecvente: bool, utilizator
+- transpiratii_abundente: bool, utilizator
+- disurie: bool, utilizator
+- umflare_articulatii: bool, utilizator
+- dificultate_miscare: bool, utilizator
+- noduli_reumatoizi: bool, utlizator
+- prurit_tegumentar: bool, utilizator
+- congestie_nazala: bool, utilizator
+- eruptii_tegument: bool, utlizator
+- stranut: bool, utilizator
+
+
+
+
+Hematolog:
+-sangerare:bool, utilizator
+-slabiciune: bool, dedus<=oboseala && scadere_greutate && ameteli
+-oboseala:bool,utilizator
+-scadere_greutate:bool,utilizator
+-ameteli:bool,utilizator
+-icter_ochi:bool, utilizator
+-palpitatii:bool, utilizator
+-urina_culoare=[inchisa, deschisa] , utilizator
+-durere_cap:bool, utilizator
+-tinitus:bool, utilizator
+-piele_palida:bool,utilizator
+-vanataie:bool,utilizator
+-transpiratie:bool,utilizator
+-extremitati_reci:bool,utilizator
+-dificultate_respiratie:bool,utilizator
+
+
+Alergolog:
+-durere_piept:bool,utilizator
+-respiratie(dificila): dedus
+-respiratie_suieratoare:bool,utilizator
+-greata:bool,utilizator
+-diaree:bool,utilizator
+-ameteala:bool,utilizator
+-varsaturi:bool,utilizator
+-simptome_nespecifice:bool, dedus<=greata && diaree && ameteala && varsaturi
+- prurit_tegumentar: bool, utilizator
+-prurit_nazal:bool,utilizator
+- congestie_nazala: bool, utilizator
+- eruptii_tegumentare: bool, utlizator
+- stranut: bool, utilizator
+-sufocare:bool,utilizator
+-umflare_limba:bool,utilizator
+-umflare_buze:bool,utilizator
+-ochi_rosii:bool,utilizator
+
+
+Chirurg:
+-edeme_picioare:bool,utilizator
+-stelute_vasculare:bool,utilizator
+-vene_ingrosate:bool,utilizator
+-vene_dilatate:bool,utilizator
+
+
+-durere_abdomen:bool,utilizator
+-greata:bool,utilizator
+-varsaturi:bool,utilizator
+-lipsa_pofta_mancare:bool,utilizator
+-constipatie:bool,utilizator
+-diaree:bool,utilizator
+-febra:bool,utilizator
+
+
+-crampe:bool,utilizator
+-varsaturi:bool,utilizator
+-oprire_tranzit_intestinal:bool,utilizator
+-meteorism_abdominal:bool,utilizator
+-piele_palida:bool,utilizator
+-deshidratare:bool,utilizator
+-respiratie_urat_mirositoare:bool,utilizator
+
+
+
+
+Pneumolog
+-tuse:bool,utilizator
+-oboseala:bool,utilizator
+-scadere_greutate:bool,utilizator
+-inapetenta:bool,utilizator
+-febra:bool,utilizator
+-durere_torace:bool,utilizator
+-respiratie(dificila) dedus
+-frisoane:bool,utilizator
+-expectoratie:bool,utilizator
+-puls_rapid:bool,utilizator
+-stare_generala_alterata:bool,dedus =>inapetenta, oboseala, gandire_neclara 
+-gandire_neclara:bool,utilizator
+
+
+Cardiolog
+
+
+-dispnee:bool,utilizator
+-oboseala:bool,utilizator
+-crestere_greutate:bool,utilizator
+-edeme:bool,utilizator
+-slabiciune:bool,utilizator
+-marire_abdomen:bool,utilizator
+-inapetenta:bool,utilizator
+-tuse:bool,utilizator
+-urinari_frecvente:bool,utilizator
+-durere_piept:bool,utilizator
+-transpiratii:bool,utilizator
+
+
+-respiratie(dificila):dedus
+-greata:bool,utilizator
+-varsaturi:bool,utilizator
+-ameteala:bool,utilizator
+-puls_rapid:bool,utilizator
+-piele_palida:bool,utilizator
+-palpitatii:bool,utilizator
+-anxietate:bool,utilizator
+-durere_maxilar:bool,utilizator
+
+
+Stomatolog
+
+
+– gingii_inflamate
+– gingii_sangerare
+– pierdere_dinti
+– schimbarea_aliniere_dinti
+– dinti_sensibili
+– respiratie_urat_mirositoare
+- durere_dinti
+- durere_maxilar
+- gust_acru_gura
+
+
+ tulburari de alimentatie:bool, dedus =>  uscaciune_gura && buze_uscate si crapate && pierdere_smalt_dentar && dinti_sensibili &&  umflare_glande_salivare.
+
+
+
+
+Ortoped
+ 
+   -probleme_articulatii:bool, dedus =>umflare_articulatii  && rigiditate_articulatii && trosnet_articulatii
+
+
+-umflare_articulatii
+-rigiditate_articulatii
+-trosnet_articulatii
+-dureri_spate
+-amorteala_maini
+-postura_gresita 
+-oboseala
+
+
+Dermatolog
+
+
+-prurit_tegumentar
+-eruptii_tegumentare
+-descuamare
+-pigmentatii
+-inrosire
+-senzatie_arsura
+-oboseala
+-durere_cap
+-umflare_articulatii
+-rigiditate_articulatii
+-febra
+-edeme
+-durere_torace
+-sensibilitate_lumina
+-cadere_par
+-tuse
+-congestie_nazala
