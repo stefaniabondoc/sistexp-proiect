@@ -327,3 +327,7 @@ Dermatolog
 -cadere_par
 -tuse
 -congestie_nazala
+-lacrimare
+-ochi_rosii
+-umflare_pleoape
+-umflare_amigdale
